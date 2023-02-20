@@ -1,7 +1,5 @@
 import dotenv from "dotenv";
 import app from "./app.js";
+import { connectDatabase } from "./config/dbConfig.js";
 dotenv.config();
-const PORT = process.env.PORT || 3500;
-app.listen(PORT, () => {
-  console.info("Server is running at http://localhost:" + PORT);
-});
+connectDatabase(app);

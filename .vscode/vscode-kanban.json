@@ -1,0 +1,20 @@
+{
+  "todo": [
+    {
+      "assignedTo": {
+        "name": "NdekoCode"
+      },
+      "creation_time": "2023-02-20T11:34:48.437Z",
+      "description": {
+        "content": "Ecrit en expressJS et mongoose\n",
+        "mime": "text/markdown"
+      },
+      "id": "1",
+      "references": [],
+      "title": "Ecrire la configuration Basic de l'API"
+    }
+  ],
+  "in-progress": [],
+  "testing": [],
+  "done": []
+}
