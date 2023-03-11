@@ -4,6 +4,7 @@ export const connectDatabase = async (app) => {
     const BD_URL = process.env.BD_URL;
     mongoose.set("strictQuery", true);
     connect(BD_URL, {
+      useNewUrlParser: true,
       useUnifiedTopology: true,
     });
     console.info("Connected to the database");
