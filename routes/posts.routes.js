@@ -1,12 +1,11 @@
 import { Router } from "express";
-import { fakePosts } from "../libs/constants.js";
+import PostsCTRL from "../controllers/PostsCTRL.js";
+import { auth } from "../middlewares/auth.mid.js";
 const postsRouter = Router();
-postsRouter.get("/", (req, res) => {
-  res.send(fakePosts);
-});
-postsRouter.get("/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  const post = fakePosts.filter((p) => p.id === id);
-  res.send(post[0] || []);
-});
+const posts = new PostsCTRL();
+postsRouter.get("/", posts.getPosts);
+postsRouter.get("/:id", posts.getPost);
+postsRouter.post("/add", auth, posts.addPost);
+postsRouter.put("/update/:id", auth, posts.updatePost);
+postsRouter.delete("/delete/:id", auth, posts.deletePost);
 export default postsRouter;
