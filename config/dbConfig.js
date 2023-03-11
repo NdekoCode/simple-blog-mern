@@ -8,10 +8,17 @@ export const connectDatabase = async (app) => {
       useUnifiedTopology: true,
     });
     console.info("Connected to the database");
-    const PORT = process.env.PORT || 3500;
-    app.listen(PORT, () => {
-      console.info("Server is running at http://localhost:" + PORT);
-    });
+    if (process.env.NODE_ENV === "production") {
+      const PORT = process.env.PORT;
+      app.listen(PORT, () => {
+        console.info("Server is running ");
+      });
+    } else {
+      const PORT = process.env.PORT || 3500;
+      app.listen(PORT, () => {
+        console.info("Server is running at http://localhost:" + PORT);
+      });
+    }
   } catch (error) {
     console.info("Failed to Connected to the database");
     console.error(error.message);
